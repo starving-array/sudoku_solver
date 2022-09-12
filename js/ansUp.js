@@ -2,12 +2,17 @@
 let n = 9; // dynamic based on user selection
 // for now n is by ddefault 9
 
-let arr = new Array(n).fill(new Array(n).fill(n));
-let masterBox = document.getElementById("container");
+let arr = new Array(n).fill(new Array(n).fill(0));
 
+// SolutionArray 
+let SolutionArray = JSON.parse(localStorage.getItem("SolutionArray")) || null;
 // function to create selement box on home page
-function CreateBox(arr) {
-  arr.forEach(function (elem, index) {
+let masterBox = document.getElementById("container");
+// C O N T A I N E R B O X
+
+
+function CreateBox(solution) {
+  solution.forEach(function (elem, index) {
     // row of sudoku
     let big = document.createElement("div");
     big.setAttribute("class", "bigDiv");
