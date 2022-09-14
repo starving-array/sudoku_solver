@@ -1,8 +1,6 @@
 // A N S W E R H O M E 
-let n = 9; // dynamic based on user selection
-// for now n is by ddefault 9
 
-let arr = new Array(n).fill(new Array(n).fill(0));
+// for now n is by ddefault 9
 
 // SolutionArray 
 let SolutionArray = JSON.parse(localStorage.getItem("SolutionArray")) || null;
@@ -21,10 +19,20 @@ function CreateBox(solution) {
     elem.forEach(function (elem2, index2) {
       let divSmall = document.createElement("div");
       divSmall.setAttribute("class", "divSmall");
+
+      let spanAns = document.createElement("span");
+      spanAns.innerText = elem2;
+      divSmall.append(spanAns);
+
       big.append(divSmall);
     });
     masterBox.append(big);
   });
+}
+
+if(SolutionArray!=null)
+{
+  CreateBox(SolutionArray);
 }
 // <<<<<<<<<<<<<<--------------------------------->>>>>>>>>>>>>>>>>>>>>>
 

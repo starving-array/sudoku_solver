@@ -1,5 +1,4 @@
 // sudoku algo
-let inputArray = new Array(n).fill(new Array(n).fill(""));
 
 // PASS THE PARTIAL ARRAY
 // RETURN TYPE BOOLEAN
@@ -10,6 +9,7 @@ function SudokuSolver(arr, row, col, num) {
   // row col starting searing point
   // num => matrix length //row length or col length
   if (row == num) {
+    localStorage.setItem("SolutionArray", JSON.stringify(arr));
     return true;
   }
   let newRow = 0;
