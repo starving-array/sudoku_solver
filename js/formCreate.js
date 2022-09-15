@@ -6,9 +6,22 @@ let numInput = 9;
 // Input by
 
 // IF any old input data found the form will be prefilled with those data
-let InputArrayForBackend =
-  JSON.parse(localStorage.getItem("InputArrayForBackend")) ||
-  new Array(numInput).fill(new Array(numInput).fill(""));
+let InputArrayForBackend = JSON.parse(
+  localStorage.getItem("InputArrayForBackend")
+);
+
+if (InputArrayForBackend == undefined) {
+  InputArrayForBackend = new Array(numInput).fill(new Array(numInput).fill(""));
+  localStorage.setItem(
+    "InputArrayForBackend",
+    JSON.stringify(InputArrayForBackend)
+  );
+  window.location.reload();
+}
+// InputArrayForBackend =
+//   JSON.parse(localStorage.getItem("InputArrayForBackend")) ||
+//   new Array(numInput).fill(new Array(numInput).fill(""));
+// console.log(InputArrayForBackend);
 
 function CreateInputBox(num) {
   // form Element
@@ -30,15 +43,19 @@ function CreateInputBox(num) {
 
       let inputEntry = document.createElement("input");
       inputEntry.setAttribute("class", "inputEntry");
+      inputEntry.placeholder = "empty";
       // value added for input bydefault
 
-      inputEntry.value = InputArrayForBackend[i][j];
+      if (InputArrayForBackend[i][j] != "") {
+        inputEntry.value = InputArrayForBackend[i][j];
+      }
 
       inputEntry.addEventListener("input", function (e) {
         let INumber = Number(e.target.value);
         if (!inputValidation(INumber)) {
           alert("Not a number");
           e.target.value = "";
+          updateBackend(e.target.value, i, j);
         } else {
           // update localStorage
           // backed user input with previous data
@@ -70,7 +87,7 @@ document.getElementById("clickme").addEventListener("click", function () {
 function inputValidation(e) {
   {
     for (let i = 1; i <= numInput; i++) {
-      if (e == i) {
+      if (e == i || e=="") {
         return true;
       }
     }
@@ -80,6 +97,7 @@ function inputValidation(e) {
 
 function updateBackend(number, row, col) {
   InputArrayForBackend[row][col] = number;
+  console.log(number, row, col, InputArrayForBackend[row][col]);
   localStorage.setItem(
     "InputArrayForBackend",
     JSON.stringify(InputArrayForBackend)
@@ -96,5 +114,10 @@ function formSubmit(e) {
   // if false throw alert => incomplete  input
   // hide form window and show result
   SudokuSolver(InputArrayForBackend, 0, 0, numInput);
-  window.location.reload();
+
+  // window.location.reload();
+  console.log("Window will reload");
+  setTimeout(function () {
+    window.location.reload();
+  }, 15000);
 }
