@@ -5,36 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="./index.css">
     <style>
-      .bigDiv {
-        display: flex;
-      }
-      .divSmall {
-        height: 50px;
-        width: 50px;
-        background-color: bisque;
-        border: 10px solid white;
-      }
-      .inputInsideDiv {
-        border: 10px solid transparent;
-        background-color: azure;
-        min-height: 50px;
-        min-width: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .inputEntry {
-        font-size: 1.2rem;
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-      .bigForm {
-        display: grid;
-        /* height: fit-content; */
-        grid-template-columns: repeat(9, 1fr);
-        grid-template-rows: repeat(1, auto);
+      #formDivAppend{
+        display: none;
       }
     </style>
   </head>
@@ -42,7 +16,9 @@
     <h1>Sudoku</h1>
     <button><h2 id="clickme">Click</h2></button>
     <div id="container"></div>
-    <div id="formDivAppend"></div>
+    <div id="formDivAppend">
+      
+    </div>
   </body>
 </html>
 

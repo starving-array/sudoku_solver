@@ -18,13 +18,10 @@ if (InputArrayForBackend == undefined) {
   );
   window.location.reload();
 }
-// InputArrayForBackend =
-//   JSON.parse(localStorage.getItem("InputArrayForBackend")) ||
-//   new Array(numInput).fill(new Array(numInput).fill(""));
-// console.log(InputArrayForBackend);
 
 function CreateInputBox(num) {
   // form Element
+  
   let bigFormInputForm = document.createElement("form");
   bigFormInputForm.setAttribute("class", "bigFormInputForm");
   bigFormInputForm.addEventListener("submit", function (ele) {
@@ -40,10 +37,10 @@ function CreateInputBox(num) {
       let div = document.createElement("div");
       div.setAttribute("class", "inputInsideDiv");
       // inputEntry
-
+      div.classList.add(dynamicClassCreator(i,j,numInput));
       let inputEntry = document.createElement("input");
       inputEntry.setAttribute("class", "inputEntry");
-      inputEntry.placeholder = "empty";
+      // inputEntry.placeholder = "empty";
       // value added for input bydefault
 
       if (InputArrayForBackend[i][j] != "") {
@@ -71,12 +68,19 @@ function CreateInputBox(num) {
   divButton.setAttribute("class", "divButton");
   let submitButton = document.createElement("button");
   submitButton.innerText = "Proceed";
-  divButton.append(submitButton);
+
+  let titleHead = document.createElement("h3");
+  titleHead.innerText = "Please fill the boxes and click proceed";
+
+  divButton.append(titleHead, submitButton);
 
   bigFormInputForm.append(divButton);
 
   formDivAppend.append(bigFormInputForm);
 }
+
+
+// CreateInputBox(numInput); // temp
 
 document.getElementById("clickme").addEventListener("click", function () {
   CreateInputBox(numInput);
@@ -97,7 +101,6 @@ function inputValidation(e) {
 
 function updateBackend(number, row, col) {
   InputArrayForBackend[row][col] = number;
-  console.log(number, row, col, InputArrayForBackend[row][col]);
   localStorage.setItem(
     "InputArrayForBackend",
     JSON.stringify(InputArrayForBackend)
@@ -113,11 +116,57 @@ function formSubmit(e) {
   // pass the InputArr to logic =>Suduko
   // if false throw alert => incomplete  input
   // hide form window and show result
-  SudokuSolver(InputArrayForBackend, 0, 0, numInput);
+  let stateCheck = SudokuSolver(InputArrayForBackend, 0, 0, numInput);
 
   // window.location.reload();
-  console.log("Window will reload");
+  console.log("Window will reload", stateCheck);
   setTimeout(function () {
     window.location.reload();
-  }, 15000);
+  }, 5000);
+}
+
+
+function dynamicClassCreator(row,col, num){
+  let mid = Math.floor(num/3);
+  let color;
+  // left side horizontal
+  if(row<mid && col<mid)
+  {
+      color = "redS";
+  }
+  else if(row<mid*2 && col<mid)
+  {
+    color = "greenS"
+  }
+  else if(row<mid*3 && col<mid)
+  {
+    color = "redS";
+  }
+  // mid horizontal
+  else if(row<mid && col<mid*2)
+  {
+    color = "greenS";
+  }
+  else if(row<mid*2 && col<mid*2)
+  {
+    color = "redS";
+  }
+  else if(row<mid*3 && col<mid*2)
+  {
+    color = "greenS";
+  }
+  // right horizontal
+  else if(row<mid && col<mid*3)
+  {
+    color = "redS";
+  }
+  else if(row<mid*2 && col<mid*3)
+  {
+    color = "greenS";
+  }
+  else if(row<mid*3 && col<mid*3)
+  {
+    color = "redS";
+  }
+  return color;
 }

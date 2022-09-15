@@ -3,19 +3,14 @@
 // PASS THE PARTIAL ARRAY
 // RETURN TYPE BOOLEAN
 // IF FALSE => ASK USER TO PUT SOME MORE DATA INSIDE
-SudokuSolver(InputArrayForBackend, 0, 0, numInput);
+// SudokuSolver(InputArrayForBackend, 0, 0, numInput);
 
 function SudokuSolver(arr, row, col, num) {
   // arr => array containing pertial input
   // row col starting searing point
   // num => matrix length //row length or col length
-  for(let i = 0; i<arr.length; i++)
-  {
-  }
   if (row == num) {
     localStorage.setItem("SolutionArray", JSON.stringify(arr));
-    console.log(arr[0]);
-    console.log("array")
     return true;
   }
 
@@ -77,52 +72,5 @@ function IsTrue(arr, row, col, val) {
 }
 
 
-// A N S W E R H O M E 
-
-// for now n is by ddefault 9
-
-// SolutionArray 
-// let SolutionArray = localStorage.setItem("SolutionArray", JSON.stringify(new Array(numInput).fill(new Array(numInput).fill(""))))
-let SolutionArray =  JSON.parse(localStorage.getItem("SolutionArray"));
-if(SolutionArray==undefined){
-  localStorage.setItem("SolutionArray", JSON.stringify(new Array(numInput).fill(new Array(numInput).fill(""))));
-  // window.location.reload();
-}
-console.log(SolutionArray)
-// function to create selement box on home page
-let masterBox = document.getElementById("container");
-// C O N T A I N E R B O X
-
-
-function CreateBox() {
-  console.log("Solution starting");
-  let solution = JSON.parse(localStorage.getItem("SolutionArray"));
-  console.log(solution)
-  solution.forEach(function (elem, index) {
-    // row of sudoku
-    let big = document.createElement("div");
-    big.setAttribute("class", "bigDiv");
-
-    // small box creating
-    elem.forEach(function (elem2, index2) {
-      let divSmall = document.createElement("div");
-      divSmall.setAttribute("class", "divSmall");
-
-      let spanAns = document.createElement("span");
-      spanAns.innerText = elem2;
-      divSmall.append(spanAns);
-
-      big.append(divSmall);
-    });
-    masterBox.append(big);
-  });
-}
-
-
-if(SolutionArray.length!=0)
-{
-  CreateBox();
-}
-// <<<<<<<<<<<<<<--------------------------------->>>>>>>>>>>>>>>>>>>>>>
 
 
