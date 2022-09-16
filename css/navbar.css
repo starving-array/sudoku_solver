@@ -1,0 +1,68 @@
+body{
+    margin: 0%;
+    padding: 0%;
+}
+nav{
+    background-color: rgb(1, 128, 85);
+    height: fit-content;
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    margin-bottom: 30px;
+}
+
+#inNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#inNav> div{
+    margin: 10px;
+    color: white;
+    font-size: 1.2rem;
+}
+
+#greet{
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    box-shadow: .5px .5px 5px .5px white;
+    align-items: center;
+    padding: 5px 10px;
+
+}
+#greet> span{
+    font-size: .9rem;
+
+}
+#clockTick{
+    text-transform: uppercase;
+}
+
+#sudokuTitle{
+    color: white;
+    letter-spacing: 1px;
+    font-size: 2.1rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* text-transform: uppercase; */
+    font-family: cursive;
+    padding: 1px 10px;
+    font-weight: bold;
+}
+
+#clickme, .signup{
+    font-style: italic;
+    letter-spacing: 1px;
+    color: rgb(248, 229, 229);
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+#clickme:hover, .signup:hover{
+    text-decoration: underline;
+}

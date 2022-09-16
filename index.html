@@ -5,23 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sudoku Solver</title>
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
     <style>
-      #formDivAppend{
+      #formDivAppend {
         display: none;
       }
     </style>
   </head>
   <body>
-    <h1>Sudoku</h1>
-    <button><h2 id="clickme">Click</h2></button>
+    <nav>
+      <div id="sudokuTitle">
+        <span>Sudoku Solver</span>
+      </div>
+      <div id="inNav">
+        <div>
+          <span id="clickme"> New Problem</span>
+        </div>
+        <div>
+          <span class="signup">Sign Up</span>
+        </div>
+        <div id="greet">
+          <span id="greetings"></span>
+          <span id="clockTick"></span>
+        </div>
+      </div>
+    </nav>
     <div id="container"></div>
-    <div id="formDivAppend">
-      
-    </div>
+    <!-- <div id="formDivAppend"></div> -->
   </body>
 </html>
-
 
 <script src="./js/formCreate.js"></script>
 
@@ -29,3 +42,7 @@
 <script src="./js/logic.js"></script>
 
 <script src="./js/ansUp.js"></script>
+
+<script src="./js/greetings.js"></script>
+
+<script></script>
