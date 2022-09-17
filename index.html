@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="./css/navbar.css" />
     <style>
-      #formDivAppend {
-        display: none;
+      .hide {
+        visibility: hidden;
+      }
+      .show {
+        transition: 3s ease-in;
+        visibility: visible;
       }
     </style>
   </head>
@@ -26,15 +30,23 @@
           <span class="signup">Sign Up</span>
         </div>
         <div id="greet">
-          <span id="greetings"></span>
+          <!-- <span id="greetings"></span> -->
           <span id="clockTick"></span>
         </div>
       </div>
     </nav>
-    <div id="container"></div>
-    <!-- <div id="formDivAppend"></div> -->
+    <div id="container">
+    </div>
+
+    <!-- Form div will show once click on new problem -->
+    <!-- and will hide on clicking proceed -->
+    <div id="formDivAppend" class="hide"></div>
   </body>
 </html>
+
+
+
+
 
 <script src="./js/formCreate.js"></script>
 
@@ -44,5 +56,3 @@
 <script src="./js/ansUp.js"></script>
 
 <script src="./js/greetings.js"></script>
-
-<script></script>

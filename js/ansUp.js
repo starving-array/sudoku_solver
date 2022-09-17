@@ -10,17 +10,30 @@ let SolutionArray =  JSON.parse(localStorage.getItem("SolutionArray"));
 
 //If no, add n*n blank box => not editable => for view only
 if(SolutionArray==undefined){
-  localStorage.setItem("SolutionArray", JSON.stringify(new Array(numInput).fill(new Array(numInput).fill(""))));
+  // localStorage.setItem("SolutionArray", JSON.stringify(new Array(numInput).fill(new Array(numInput).fill(""))));
   // window.location.reload();
+  let div = document.createElement("div");
+  div.setAttribute("class", "show");
+  div.setAttribute("id", "welcomeMsg");
+  let spanTex = document.createElement("span");
+  spanTex.setAttribute("id", "greetings");
+  let spanText = document.createElement("span");
+  spanText.innerText = "Welcome to suduko solver.";
+  let spanText2 = document.createElement("span");
+  spanText2.innerText = "You can add a problem and get solution.";
+  let spanText3 = document.createElement("span");
+  spanText3.innerText = "Click on New Problem link above on the Navbar";
+  div.append(spanTex,spanText, spanText2, spanText3);
+  document.getElementById("container").append(div);
 }
 
 // function to create selement box on home page
 let masterBox = document.getElementById("container");
 // C O N T A I N E R B O X
 
-function CreateBox() {
+function CreateBox(solution) {
   console.log("Solution starting");
-  let solution = JSON.parse(localStorage.getItem("SolutionArray"));
+  // let solution = JSON.parse(localStorage.getItem("SolutionArray"));
   solution.forEach(function (elem, index) {
     // row of sudoku
     let big = document.createElement("div");
@@ -41,10 +54,10 @@ function CreateBox() {
   });
 }
 
-
 if(SolutionArray.length!=0)
 {
-  CreateBox();
+  console.log(SolutionArray.length)
+  CreateBox(SolutionArray);
 }
 // <<<<<<<<<<<<<<--------------------------------->>>>>>>>>>>>>>>>>>>>>>
 

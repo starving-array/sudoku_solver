@@ -4,6 +4,8 @@ body{
 }
 nav{
     background-color: rgb(1, 128, 85);
+    background-color: black;
+    background-color: teal;
     height: fit-content;
     min-height: 10vh;
     display: flex;
@@ -12,6 +14,7 @@ nav{
     position: sticky;
     top: 0px;
     margin-bottom: 30px;
+    box-shadow: .2px .2px 6px .3px red;
 }
 
 #inNav{
@@ -36,6 +39,10 @@ nav{
     align-items: center;
     padding: 5px 10px;
 
+}
+
+#greetings{
+    font-weight: bold;
 }
 #greet> span{
     font-size: .9rem;
@@ -62,6 +69,7 @@ nav{
     color: rgb(248, 229, 229);
     font-size: 1.3rem;
     cursor: pointer;
+    opacity: 1;
 }
 #clickme:hover, .signup:hover{
     text-decoration: underline;

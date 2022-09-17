@@ -21,7 +21,7 @@ if (InputArrayForBackend == undefined) {
 
 function CreateInputBox(num) {
   // form Element
-  
+
   let bigFormInputForm = document.createElement("form");
   bigFormInputForm.setAttribute("class", "bigFormInputForm");
   bigFormInputForm.addEventListener("submit", function (ele) {
@@ -37,7 +37,7 @@ function CreateInputBox(num) {
       let div = document.createElement("div");
       div.setAttribute("class", "inputInsideDiv");
       // inputEntry
-      div.classList.add(dynamicClassCreator(i,j,numInput));
+      div.classList.add(dynamicClassCreator(i, j, numInput));
       let inputEntry = document.createElement("input");
       inputEntry.setAttribute("class", "inputEntry");
       // inputEntry.placeholder = "empty";
@@ -79,11 +79,11 @@ function CreateInputBox(num) {
   formDivAppend.append(bigFormInputForm);
 }
 
-
 // CreateInputBox(numInput); // temp
 
 document.getElementById("clickme").addEventListener("click", function () {
   CreateInputBox(numInput);
+  formDivAppend.setAttribute("class", "show");
 });
 // input box create
 
@@ -91,7 +91,7 @@ document.getElementById("clickme").addEventListener("click", function () {
 function inputValidation(e) {
   {
     for (let i = 1; i <= numInput; i++) {
-      if (e == i || e=="") {
+      if (e == i || e == "") {
         return true;
       }
     }
@@ -121,51 +121,36 @@ function formSubmit(e) {
   // window.location.reload();
   console.log("Window will reload", stateCheck);
   setTimeout(function () {
+    formDivAppend.setAttribute("class", "hide");
     window.location.reload();
-  }, 5000);
+  }, 2000);
 }
 
-
-function dynamicClassCreator(row,col, num){
-  let mid = Math.floor(num/3);
+function dynamicClassCreator(row, col, num) {
+  let mid = Math.floor(num / 3);
   let color;
   // left side horizontal
-  if(row<mid && col<mid)
-  {
-      color = "redS";
-  }
-  else if(row<mid*2 && col<mid)
-  {
-    color = "greenS"
-  }
-  else if(row<mid*3 && col<mid)
-  {
+  if (row < mid && col < mid) {
+    color = "redS";
+  } else if (row < mid * 2 && col < mid) {
+    color = "greenS";
+  } else if (row < mid * 3 && col < mid) {
     color = "redS";
   }
   // mid horizontal
-  else if(row<mid && col<mid*2)
-  {
+  else if (row < mid && col < mid * 2) {
     color = "greenS";
-  }
-  else if(row<mid*2 && col<mid*2)
-  {
+  } else if (row < mid * 2 && col < mid * 2) {
     color = "redS";
-  }
-  else if(row<mid*3 && col<mid*2)
-  {
+  } else if (row < mid * 3 && col < mid * 2) {
     color = "greenS";
   }
   // right horizontal
-  else if(row<mid && col<mid*3)
-  {
+  else if (row < mid && col < mid * 3) {
     color = "redS";
-  }
-  else if(row<mid*2 && col<mid*3)
-  {
+  } else if (row < mid * 2 && col < mid * 3) {
     color = "greenS";
-  }
-  else if(row<mid*3 && col<mid*3)
-  {
+  } else if (row < mid * 3 && col < mid * 3) {
     color = "redS";
   }
   return color;
