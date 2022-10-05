@@ -75,13 +75,14 @@ function CreateInputBox(num) {
   divButton.append(titleHead, submitButton);
 
   bigFormInputForm.append(divButton);
-
+  formDivAppend.innerHTML = null;
   formDivAppend.append(bigFormInputForm);
 }
 
 // CreateInputBox(numInput); // temp
 
 document.getElementById("clickme").addEventListener("click", function () {
+
   CreateInputBox(numInput);
   formDivAppend.setAttribute("class", "show");
 });
