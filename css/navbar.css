@@ -1,76 +1,114 @@
-body{
-    margin: 0%;
-    padding: 0%;
+body {
+  margin: 0%;
+  padding: 0%;
 }
-nav{
-    background-color: rgb(1, 128, 85);
-    background-color: black;
-    background-color: teal;
-    height: fit-content;
-    min-height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0px;
-    margin-bottom: 30px;
-    box-shadow: .2px .2px 6px .3px red;
-}
-
-#inNav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+nav {
+  background-color: rgb(1, 128, 85);
+  background-color: black;
+  background-color: teal;
+  height: fit-content;
+  min-height: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  margin-bottom: 30px;
+  box-shadow: 0.2px 0.2px 6px 0.3px red;
 }
 
-#inNav> div{
-    margin: 10px;
-    color: white;
-    font-size: 1.2rem;
+#inNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-#greet{
-    display: flex;
-    flex-direction: column;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    box-shadow: .5px .5px 5px .5px white;
-    align-items: center;
-    padding: 5px 10px;
-
+#inNav > div {
+  margin: 10px;
+  color: white;
+  font-size: 1.2rem;
 }
 
-#greetings{
-    font-weight: bold;
+#greet {
+  display: flex;
+  flex-direction: column;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  box-shadow: 0.5px 0.5px 5px 0.5px white;
+  align-items: center;
+  padding: 5px 10px;
 }
-#greet> span{
-    font-size: .9rem;
 
+#greetings {
+  font-weight: bold;
 }
-#clockTick{
-    text-transform: uppercase;
+#greet > span {
+  font-size: 0.9rem;
+}
+#clockTick {
+  text-transform: uppercase;
 }
 
-#sudokuTitle{
-    color: white;
-    letter-spacing: 1px;
-    font-size: 2.1rem;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* text-transform: uppercase; */
+#sudokuTitle {
+  color: white;
+  letter-spacing: 1px;
+  font-size: 2.1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* text-transform: uppercase; */
+  font-family: cursive;
+  padding: 1px 10px;
+  font-weight: bold;
+}
+
+#clickme,
+.signup {
+  font-style: italic;
+  letter-spacing: 1px;
+  color: rgb(248, 229, 229);
+  font-size: 1.3rem;
+  cursor: pointer;
+  opacity: 1;
+}
+#clickme:hover,
+.signup:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+#clickme {
+  font-family: "Times New Roman", Times, serif;
+  font-style: normal;
+  font-weight: bold;
+  color: bisque;
+  color: rgb(204, 10, 10);
+  filter: drop-shadow(1px 1px 2px white);
+}
+
+#welcomeMsg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2rem;
+  text-transform: capitalize;
+  margin-top: 50px;
+}
+
+#welcomeMsg > span {
+  margin: 10px;
+}
+
+@media all and (min-width: 100px) and (max-width: 500px) {
+  #welcomeMsg > span {
+    font-size: 0.9rem;
+}
+#welcomeMsg {
+    align-items: flex-start;
+}
+#welcomeMsg>:nth-child(1){
+    font-size: 1.1rem;
     font-family: cursive;
-    padding: 1px 10px;
-    font-weight: bold;
-}
-
-#clickme, .signup{
-    font-style: italic;
     letter-spacing: 1px;
-    color: rgb(248, 229, 229);
-    font-size: 1.3rem;
-    cursor: pointer;
-    opacity: 1;
-}
-#clickme:hover, .signup:hover{
-    text-decoration: underline;
+  }
 }
