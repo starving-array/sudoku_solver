@@ -112,3 +112,20 @@ nav {
     letter-spacing: 1px;
   }
 }
+
+#footer{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    background-color: teal;
+    justify-content: center;
+}
+
+#footer>a{
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
